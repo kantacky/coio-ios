@@ -9,7 +9,7 @@ import CoreLocation
 import Foundation
 
 extension CLLocationCoordinate2D: Codable, Equatable {
-    enum CodingKeys: String, CodingKey {
+    private enum CodingKeys: String, CodingKey {
         case latitude
         case longitude
     }
