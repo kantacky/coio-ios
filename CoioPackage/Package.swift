@@ -10,6 +10,7 @@ let package = Package(
         .library(name: "CoioPackage", targets: ["CoioPackage"]),
     ],
     targets: [
+        .target(name: "CoioEntity"),
         .target(name: "CoioPackage"),
         .testTarget(
             name: "CoioPackageTests",
