@@ -16,5 +16,6 @@ let package = Package(
             name: "CoioPackageTests",
             dependencies: ["CoioPackage"]
         ),
+        .target(name: "CoioResource"),
     ]
 )
