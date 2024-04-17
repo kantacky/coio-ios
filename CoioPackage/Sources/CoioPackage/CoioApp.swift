@@ -5,6 +5,7 @@
 //  Created by Kanta Oikawa on 2024/04/11.
 //
 
+import CoioResource
 import SwiftUI
 
 public struct CoioApp: App {
@@ -12,7 +13,7 @@ public struct CoioApp: App {
 
     public var body: some Scene {
         WindowGroup {
-            Text("coio")
+            LaunchView()
         }
     }
 }
