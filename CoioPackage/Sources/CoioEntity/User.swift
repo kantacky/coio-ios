@@ -1,5 +1,5 @@
 //
-//  Friend.swift
+//  User.swift
 //
 //
 //  Created by Kanta Oikawa on 2024/04/12.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct Friend: UserProtocol {
+public struct User: Identifiable, Codable, Equatable {
     public let id: String
     public let nickname: String
     public let groups: [Group]

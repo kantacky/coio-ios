@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct CheckEvent<User>: Identifiable, Codable, Equatable where User: UserProtocol {
+public struct CheckEvent: Identifiable, Codable, Equatable {
     public let id: String
     public let timestamp: Date
     public let user: User

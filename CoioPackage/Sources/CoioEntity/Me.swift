@@ -7,21 +7,16 @@
 
 import Foundation
 
-public struct Me: UserProtocol {
-    public let id: String
-    public var nickname: String
-    public var groups: [Group]
-    public var friends: [Friend]
+public struct Me: Identifiable, Codable, Equatable {
+    public let me: User
+    public var friends: [User]
+    public var id: User.ID { me.id }
 
     public init(
-        id: String,
-        nickname: String,
-        groups: [Group],
-        friends: [Friend]
+        me: User,
+        friends: [User]
     ) {
-        self.id = id
-        self.nickname = nickname
-        self.groups = groups
+        self.me = me
         self.friends = friends
     }
 }

@@ -10,14 +10,14 @@ import Foundation
 public struct Group: Identifiable, Codable, Equatable {
     public let id: String
     public var name: String
-    public var members: [Friend]
+    public var members: [User]
     public var landmark: Landmark
     public var daySessions: [DaySession]
 
     public init(
         id: String,
         name: String,
-        members: [Friend],
+        members: [User],
         landmark: Landmark,
         daySessions: [DaySession]
     ) {
