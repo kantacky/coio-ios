@@ -74,14 +74,8 @@ struct HomeHeaderView: View {
                 ) {}
             }
         }
-        .padding(
-            EdgeInsets(
-                top: 54,
-                leading: 24,
-                bottom: 16,
-                trailing: 24
-            )
-        )
+        .padding(.vertical, 16)
+        .padding(.horizontal, 24)
         .background(backgroundColor)
     }
 }
