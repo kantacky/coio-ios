@@ -7,18 +7,21 @@
 
 import Foundation
 
-public struct CheckEvent: Identifiable, Codable, Equatable {
+public struct CheckEvent<User>: Identifiable, Codable, Equatable where User: UserProtocol {
     public let id: String
-    public var type: CheckType
-    public var timestamp: Date
+    public let timestamp: Date
+    public let user: User
+    public let type: CheckType
 
     public init(
         id: String,
-        type: CheckType,
-        timestamp: Date
+        timestamp: Date,
+        user: User,
+        type: CheckType
     ) {
         self.id = id
-        self.type = type
         self.timestamp = timestamp
+        self.user = user
+        self.type = type
     }
 }

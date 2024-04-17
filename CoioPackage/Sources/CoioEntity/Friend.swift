@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct Friend: Identifiable, Codable, Equatable {
+public struct Friend: UserProtocol {
     public let id: String
     public let nickname: String
     public let groups: [Group]
