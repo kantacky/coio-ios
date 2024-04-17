@@ -8,6 +8,7 @@ let package = Package(
     platforms: [.iOS(.v17)],
     products: [
         .library(name: "CoioComponent", targets: ["CoioComponent"]),
+        .library(name: "CoioHome", targets: ["CoioHome"]),
         .library(name: "CoioPackage", targets: ["CoioPackage"]),
     ],
     targets: [
@@ -16,7 +17,21 @@ let package = Package(
             dependencies: ["CoioResource"]
         ),
         .target(name: "CoioEntity"),
-        .target(name: "CoioPackage"),
+        .target(
+            name: "CoioHome",
+            dependencies: [
+                "CoioComponent",
+                "CoioEntity",
+                "CoioResource",
+            ]
+        ),
+        .target(
+            name: "CoioPackage",
+            dependencies: [
+                "CoioHome",
+                "CoioResource"
+            ]
+        ),
         .testTarget(
             name: "CoioPackageTests",
             dependencies: ["CoioPackage"]
