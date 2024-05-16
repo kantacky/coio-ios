@@ -8,15 +8,24 @@
 import Foundation
 
 public struct Me: Identifiable, Codable, Equatable {
-    public let me: User
+    public let user: User
     public var friends: [User]
-    public var id: User.ID { me.id }
+    public var id: User.ID { user.id }
 
     public init(
-        me: User,
+        user: User,
         friends: [User]
     ) {
-        self.me = me
+        self.user = user
         self.friends = friends
     }
 }
+
+#if DEBUG
+public extension Me {
+    static let mock = Me(
+        user: .mock,
+        friends: []
+    )
+}
+#endif

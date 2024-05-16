@@ -80,6 +80,7 @@ struct HomeHeaderView: View {
     }
 }
 
+#if DEBUG
 #Preview {
     VStack {
         ForEach(CheckStatus.allCases, id: \.self) { status in
@@ -87,3 +88,4 @@ struct HomeHeaderView: View {
         }
     }
 }
+#endif

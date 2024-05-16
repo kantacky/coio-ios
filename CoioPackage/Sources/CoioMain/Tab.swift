@@ -46,6 +46,4 @@ enum Tab: CaseIterable, Identifiable {
             return "gear"
         }
     }
-
-
 }

@@ -25,3 +25,14 @@ public struct CheckEvent: Identifiable, Codable, Equatable {
         self.type = type
     }
 }
+
+#if DEBUG
+public extension CheckEvent {
+    static let mock = CheckEvent(
+        id: "1",
+        timestamp: Date(),
+        user: User.mock,
+        type: .checkIn
+    )
+}
+#endif

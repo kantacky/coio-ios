@@ -14,11 +14,14 @@ struct LaunchView: View {
             .overlay {
                 Image.coio
                     .resizable()
-                    .frame(width: 128, height: 128)
+                    .scaledToFit()
+                    .frame(width: 128)
             }
     }
 }
 
+#if DEBUG
 #Preview {
     LaunchView()
 }
+#endif

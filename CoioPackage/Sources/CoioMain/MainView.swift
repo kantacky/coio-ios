@@ -1,5 +1,5 @@
 //
-//  SwiftUIView.swift
+//  MainView.swift
 //
 //
 //  Created by Kanta Oikawa on 2024/04/17.
@@ -9,14 +9,16 @@ import CoioHome
 import CoioResource
 import SwiftUI
 
-struct AppRootView: View {
-    var body: some View {
+public struct MainView: View {
+    public init() {}
+
+    public var body: some View {
         TabView {
             ForEach(Tab.allCases) { tab in
                 Group {
                     switch tab {
                     case .home:
-                        CoioHomeView()
+                        Text("Home")
 
                     case .friends:
                         Text("Friends")
@@ -39,6 +41,8 @@ struct AppRootView: View {
     }
 }
 
+#if DEBUG
 #Preview {
-    AppRootView()
+    MainView()
 }
+#endif

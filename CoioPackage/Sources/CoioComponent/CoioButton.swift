@@ -76,6 +76,7 @@ public struct CoioButton: View {
     }
 }
 
+#if DEBUG
 #Preview {
     VStack {
         ForEach(CoioButton.ButtonType.allCases, id: \.self) { type in
@@ -83,3 +84,4 @@ public struct CoioButton: View {
         }
     }
 }
+#endif

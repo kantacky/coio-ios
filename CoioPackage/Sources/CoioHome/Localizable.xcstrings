@@ -1,0 +1,26 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "Haven't checked in yet today." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "本日はまだチェックインしていません。"
+          }
+        }
+      }
+    },
+    "You" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "あなた"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}
