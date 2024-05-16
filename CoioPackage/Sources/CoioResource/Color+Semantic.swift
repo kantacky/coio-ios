@@ -30,7 +30,7 @@ public extension Color.Semantic {
             return Color(.coioBeidge)
 
         case .secondaryBackground:
-            return Color(.coioPurple)
+            return Color(.coioBlue)
 
         case .tertiaryBackground:
             return Color(.coioGray)
@@ -45,7 +45,7 @@ public extension Color.Semantic {
             return Color(.coioGray)
 
         case .primaryAccent:
-            return Color(.coioPurple)
+            return Color(.coioBlue)
 
         case .secondaryAccent:
             return Color(.coioGreen)

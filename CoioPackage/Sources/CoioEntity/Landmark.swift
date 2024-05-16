@@ -20,3 +20,12 @@ public struct Landmark: Codable, Equatable {
         self.coordinate = coordinate
     }
 }
+
+#if DEBUG
+public extension Landmark {
+    static let mock = Landmark(
+        name: "公立はこだて未来大学",
+        coordinate: CLLocationCoordinate2D(latitude: 41.842017, longitude: 140.766801)
+    )
+}
+#endif

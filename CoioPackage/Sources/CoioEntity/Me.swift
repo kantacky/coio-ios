@@ -7,21 +7,25 @@
 
 import Foundation
 
-public struct Me: UserProtocol {
-    public let id: String
-    public var nickname: String
-    public var groups: [Group]
-    public var friends: [Friend]
+public struct Me: Identifiable, Codable, Equatable {
+    public let user: User
+    public var friends: [User]
+    public var id: User.ID { user.id }
 
     public init(
-        id: String,
-        nickname: String,
-        groups: [Group],
-        friends: [Friend]
+        user: User,
+        friends: [User]
     ) {
-        self.id = id
-        self.nickname = nickname
-        self.groups = groups
+        self.user = user
         self.friends = friends
     }
 }
+
+#if DEBUG
+public extension Me {
+    static let mock = Me(
+        user: .mock,
+        friends: []
+    )
+}
+#endif

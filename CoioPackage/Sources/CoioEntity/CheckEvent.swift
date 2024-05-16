@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct CheckEvent<User>: Identifiable, Codable, Equatable where User: UserProtocol {
+public struct CheckEvent: Identifiable, Codable, Equatable {
     public let id: String
     public let timestamp: Date
     public let user: User
@@ -25,3 +25,14 @@ public struct CheckEvent<User>: Identifiable, Codable, Equatable where User: Use
         self.type = type
     }
 }
+
+#if DEBUG
+public extension CheckEvent {
+    static let mock = CheckEvent(
+        id: "1",
+        timestamp: Date(),
+        user: User.mock,
+        type: .checkIn
+    )
+}
+#endif

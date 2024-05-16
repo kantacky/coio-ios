@@ -25,3 +25,14 @@ public struct DaySession: Identifiable, Codable, Equatable {
         self.checkEvents = checkEvents
     }
 }
+
+#if DEBUG
+public extension DaySession {
+    static let mock = DaySession(
+        id: "1",
+        date: Date(),
+        question: "How are you?",
+        checkEvents: [CheckEvent.mock]
+    )
+}
+#endif

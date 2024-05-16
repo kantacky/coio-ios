@@ -11,19 +11,55 @@ import SwiftUI
 public struct CoioButton: View {
     private let labelString: String
     private let fontStyle: Font
-    private let isDisabled: Bool
+    private let type: ButtonType
     private let action: () -> Void
 
     public init(
         _ labelString: String,
-        fontStyle: Font,
-        isDisabled: Bool = false,
+        fontStyle: Font = .coioSubtitle,
+        type: ButtonType = .primary,
         action: @escaping () -> Void
     ) {
         self.labelString = labelString
         self.fontStyle = fontStyle
-        self.isDisabled = isDisabled
+        self.type = type
         self.action = action
+    }
+
+    public enum ButtonType: CaseIterable {
+        case primary
+        case secondary
+        case disabled
+
+        var isDisabled: Bool {
+            self == .disabled
+        }
+
+        var textColor: Color {
+            switch self {
+            case .primary:
+                return Color.Semantic.secondaryText.color
+
+            case .secondary:
+                return Color.Semantic.primaryText.color
+
+            case .disabled:
+                return Color.Semantic.secondaryText.color
+            }
+        }
+
+        var backgroundColor: Color {
+            switch self {
+            case .primary:
+                Color.Semantic.secondaryBackground.color
+
+            case .secondary:
+                Color.Semantic.primaryBackground.color
+
+            case .disabled:
+                Color.Semantic.tertiaryBackground.color
+            }
+        }
     }
 
     public var body: some View {
@@ -32,17 +68,20 @@ public struct CoioButton: View {
                 .padding(.vertical, 8)
                 .padding(.horizontal, 16)
                 .font(fontStyle)
-                .foregroundStyle(Color.Semantic.secondaryText.color)
-                .background(isDisabled ? Color.Semantic.tertiaryBackground.color : Color.Semantic.secondaryBackground.color)
+                .foregroundStyle(type.textColor)
+                .background(type.backgroundColor)
                 .clipShape(Capsule())
         }
-        .disabled(isDisabled)
+        .disabled(type.isDisabled)
     }
 }
 
+#if DEBUG
 #Preview {
     VStack {
-        CoioButton("CHECK IN", fontStyle: .coioSubtitle) {}
-        CoioButton("CHECK IN", fontStyle: .coioSubtitle, isDisabled: true) {}
+        ForEach(CoioButton.ButtonType.allCases, id: \.self) { type in
+            CoioButton("CHECK IN", type: type) {}
+        }
     }
 }
+#endif
